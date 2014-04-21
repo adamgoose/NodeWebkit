@@ -1,0 +1,20 @@
+{
+  "name": "node-webkit",
+  "version": "0.1.0",
+  "description": "Node Webkit Base",
+  "author": "Robin Malfait <malfait.robin@gmail.com>",
+  "main": "index.html",
+  "window": {
+    "title": "Adam",
+    "show": false,
+    "toolbar": false,
+    "width": 800,
+    "height": 600,
+    "position": "center",
+    "frame": true,
+    "resizable": true
+  },
+  "webkit": {
+    "plugin": true
+  },
+}
