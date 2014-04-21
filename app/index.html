@@ -1,12 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-
+    <link rel="stylesheet" href="public/css/app.css">
 </head>
 <body>
 
+    <!-- If you have a menu or something,
+    you can add it here,
+    this will always be on top then
+    (read: template) -->
+
+    <div ng-view></div>
+
+    <script src="public/js/app.min.js"></script>
 </body>
 </html>
 

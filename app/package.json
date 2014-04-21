@@ -6,8 +6,8 @@
   "main": "index.html",
   "window": {
     "title": "Adam",
-    "show": false,
-    "toolbar": false,
+    "show": true,
+    "toolbar": true,
     "width": 800,
     "height": 600,
     "position": "center",
@@ -16,5 +16,5 @@
   },
   "webkit": {
     "plugin": true
-  },
+  }
 }

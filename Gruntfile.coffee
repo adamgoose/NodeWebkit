@@ -6,8 +6,8 @@ module.exports = (grunt) ->
 
         watch:
             scripts:
-                files: ['app/assets/coffeescript/**/*.coffee']
-                tasks: ['clear', 'coffee', 'concat', 'uglify:build']
+                files: ['app/assets/javascripts/**/*.js']
+                tasks: ['clear', 'concat', 'uglify:build']
                 options:
                     spawn: false
                     livereload: true
@@ -21,7 +21,7 @@ module.exports = (grunt) ->
         nodewebkit:
             options:
                 build_dir: './builds'
-                credits: './credits.html'
+                credits: './app/credits.html'
                 version: '0.9.1'
                 mac: true
                 win: false
@@ -34,17 +34,6 @@ module.exports = (grunt) ->
                     './app/index.html'
                 ]
 
-        coffee:
-            options:
-                bare: true
-
-            glob_to_multiple:
-                expand: true
-                cwd: 'app/assets/coffeescript'
-                src: ['**/*.coffee']
-                dest: 'app/assets/javascripts/'
-                ext: '.js'
-
         concat:
             build:
                 options:
@@ -55,18 +44,18 @@ module.exports = (grunt) ->
                 src: [
                     'app/assets/javascripts/**/*'
                 ]
-                dest: 'app/public/js/main.js'
+                dest: 'app/public/js/app.js'
         sass:
             build:
                 options:
                     style: 'compressed'
 
                 files:
-                    'app/public/css/main.css': 'app/assets/sass/main.scss'
+                    'app/public/css/app.css': 'app/assets/sass/app.scss'
         autoprefixer:
             no_dest:
                 src: [
-                    'app/public/css/main.css'
+                    'app/public/css/app.css'
                 ]
 
         uglify:
@@ -74,10 +63,9 @@ module.exports = (grunt) ->
                 options:
                     report: 'min'
                 files:
-                    'app/public/js/main.min.js': ['app/public/js/main.js']
+                    'app/public/js/app.min.js': ['app/public/js/app.js']
 
     grunt.loadNpmTasks 'grunt-autoprefixer'
-    grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-concat'
     grunt.loadNpmTasks 'grunt-contrib-sass'
     grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -89,3 +77,5 @@ module.exports = (grunt) ->
         console.log "\u001B[2J\u001B[0;0f"
 
     grunt.registerTask 'default', ['watch']
+
+    grunt.registerTask 'build', ['nodewebkit']
